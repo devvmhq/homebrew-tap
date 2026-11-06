@@ -3,6 +3,7 @@
 The Homebrew tap for [devvm](https://github.com/devvmhq/devvm), which gives each project folder an isolated VM of its own.
 
 ```sh
+brew trust --formula devvmhq/tap/devvm
 brew install devvmhq/tap/devvm
 ```
 
