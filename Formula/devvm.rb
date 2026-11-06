@@ -1,0 +1,22 @@
+# The formula for the devvmhq/homebrew-tap repo. scripts/release.sh fills in @URL@ and @SHA256@ and writes
+# the result to dist/devvm.rb. Homebrew reads the version from the URL (devvm-<version>.tar.gz).
+class Devvm < Formula
+  desc "Isolated Lima VM per project folder, with shared read-only toolchains"
+  homepage "https://github.com/devvmhq/devvm"
+  url "https://github.com/devvmhq/devvm/releases/download/v0.1.0/devvm-0.1.0.tar.gz"
+  sha256 "d40fe2bec7918df18fbfbaa41c096f17159542d508cf8cbb7edda5dbda36d085"
+  license "MIT"
+
+  depends_on "go" => :build
+  depends_on "lima"
+
+  def install
+    ENV["CGO_ENABLED"] = "0"
+    ldflags = "-s -w -X github.com/devvmhq/devvm/internal/cli.version=#{version}"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/devvm"
+  end
+
+  test do
+    assert_equal version.to_s, shell_output("#{bin}/devvm --version").strip
+  end
+end
