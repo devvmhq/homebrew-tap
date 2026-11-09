@@ -1,8 +1,10 @@
-# devvm's newest prerelease, such as a release candidate, for trying before its release. The devvm
-# formula has the newest release. Both install the devvm command, so install one or the other.
-# Made from devvm's scripts/release.sh --formula-from, with the release's signed SHA256SUMS.
+# The formulas for the devvmhq/homebrew-tap repo: devvm, a release's, and devvm-rc, the newest
+# prerelease's or release's. scripts/release.sh fills in @CLASS@ and @CONFLICTS@ for each formula, and
+# each platform's @URL_<OS>_<ARCH>@ and @SHA256_<OS>_<ARCH>@ from the release's SHA256SUMS, and writes the
+# result to dist/devvm.rb or dist/devvm-rc.rb. It installs the release's binary, which SHA256SUMS.minisig
+# signs. Homebrew reads the version from the URLs (devvm-<version>-<os>-<arch>.tar.gz).
 class DevvmRc < Formula
-  desc "Isolated Lima VM per project folder, with shared toolchains (prerelease)"
+  desc "Isolated Lima VM per project folder, with shared read-only toolchains"
   homepage "https://github.com/devvmhq/devvm"
   license "MIT"
 
@@ -10,27 +12,27 @@ class DevvmRc < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.1/devvm-0.1.1-rc.1-darwin-arm64.tar.gz"
-      sha256 "2fd4c1ecaddea29b03b6b84c42c0345716a8da3a1bbf6625d4a02a2b6243b60e"
+      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.2/devvm-0.1.1-rc.2-darwin-arm64.tar.gz"
+      sha256 "8f390245bb1e9c7fd95b9345781586de20fda95d3cd9d2ddf4836edd339bcd49"
     end
     on_intel do
-      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.1/devvm-0.1.1-rc.1-darwin-amd64.tar.gz"
-      sha256 "7d501a340d1a579b78ac15138d928c88929fe3ac3b9ae50ccad7e4eeb248df8b"
+      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.2/devvm-0.1.1-rc.2-darwin-amd64.tar.gz"
+      sha256 "b2a6720be3d7bd5898dd3242895b1671b7bc14ec5e73822a18d3f5db53b11cbc"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.1/devvm-0.1.1-rc.1-linux-arm64.tar.gz"
-      sha256 "76d0076dee391269e43b0a4e5e596d06ac5c8136b1cebb2da6c7e2a9e1b62613"
+      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.2/devvm-0.1.1-rc.2-linux-arm64.tar.gz"
+      sha256 "97b4f2f42c57a9d04af6d717f463200a42fcb78bb6245e790ed3642bd25b47ef"
     end
     on_intel do
-      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.1/devvm-0.1.1-rc.1-linux-amd64.tar.gz"
-      sha256 "8f1c12669910a45c5b5b5a18e77df8d27b13958f0bd760d25b59af8a24e6898f"
+      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.2/devvm-0.1.1-rc.2-linux-amd64.tar.gz"
+      sha256 "cb8254b6f704cc3f3cd85144166d68b87391fc3bc2d48224859bb13afca16007"
     end
   end
 
-  conflicts_with "devvm", because: "both install the devvm command"
+  conflicts_with "devvmhq/tap/devvm", because: "both install the devvm binary"
 
   def install
     bin.install "devvm"
