@@ -12,23 +12,23 @@ class DevvmRc < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.2/devvm-0.1.1-rc.2-darwin-arm64.tar.gz"
-      sha256 "8f390245bb1e9c7fd95b9345781586de20fda95d3cd9d2ddf4836edd339bcd49"
+      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.3/devvm-0.1.1-rc.3-darwin-arm64.tar.gz"
+      sha256 "437d837b8c7e46439aca400ee6f65622aea78fcec5e13eb3511bf8510b4a63a4"
     end
     on_intel do
-      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.2/devvm-0.1.1-rc.2-darwin-amd64.tar.gz"
-      sha256 "b2a6720be3d7bd5898dd3242895b1671b7bc14ec5e73822a18d3f5db53b11cbc"
+      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.3/devvm-0.1.1-rc.3-darwin-amd64.tar.gz"
+      sha256 "a77d1710aa45a88de5a16b80b17ed2e9f94b35bc6f85c1809216d88ad1056c07"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.2/devvm-0.1.1-rc.2-linux-arm64.tar.gz"
-      sha256 "97b4f2f42c57a9d04af6d717f463200a42fcb78bb6245e790ed3642bd25b47ef"
+      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.3/devvm-0.1.1-rc.3-linux-arm64.tar.gz"
+      sha256 "eff74306bd822d3388f714579d6a7222d0ef83bd50e5358f438f9965e5df2c0d"
     end
     on_intel do
-      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.2/devvm-0.1.1-rc.2-linux-amd64.tar.gz"
-      sha256 "cb8254b6f704cc3f3cd85144166d68b87391fc3bc2d48224859bb13afca16007"
+      url "https://github.com/devvmhq/devvm/releases/download/v0.1.1-rc.3/devvm-0.1.1-rc.3-linux-amd64.tar.gz"
+      sha256 "3bf88135df67e77e730aee84e27ade0358d5854257e464016b0bc1b9205a6d05"
     end
   end
 
